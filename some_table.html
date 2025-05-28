@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Multiplication Table</title>
+</head>
+<body>
+
+<h2>Multiplication Table</h2>
+<div id="output"></div>
+
+<script>
+  // Ask the user for number of rows and columns
+  let rows = prompt("Enter number of rows:");
+  let cols = prompt("Enter number of columns:");
+
+  // Convert input to numbers and use 10 if invalid or empty
+  rows = parseInt(rows) || 10;
+  cols = parseInt(cols) || 10;
+
+  let result = "<table border='1' cellspacing='0' cellpadding='5'>";
+
+  for (let i = 1; i <= rows; i++) {
+    result += "<tr>";
+    for (let j = 1; j <= cols; j++) {
+      result += `<td>${i * j}</td>`;
+    }
+    result += "</tr>";
+  }
+
+  result += "</table>";
+
+  // Display the result
+  document.getElementById("output").innerHTML = result;
+</script>
+
+</body>
+</html>
