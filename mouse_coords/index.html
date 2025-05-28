@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mouse Coordinates Tracker</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+    }
+    #output {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+    #track-area {
+      border: 2px dashed gray;
+      height: 300px;
+      width: 500px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: gray;
+      background-color: #f9f9f9;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Mouse Coordinates Tracker</h2>
+  <div id="track-area">
+    Move your mouse here
+  </div>
+
+  <div id="output">X: 0, Y: 0</div>
+
+  <script>
+    const output = document.getElementById("output");
+    const trackArea = document.getElementById("track-area");
+
+    trackArea.addEventListener("mousemove", function(event) {
+      const x = event.offsetX;
+      const y = event.offsetY;
+      output.textContent = `X: ${x}, Y: ${y}`;
+    });
+  </script>
+
+</body>
+</html>

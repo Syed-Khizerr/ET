@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Table</title>
+</head>
+<body>
+  <div class="input">
+    <div id="name">
+      name: <input type="text" name="name" id="name-1">
+      age: <input type="text" name="age" id="age">
+      college: <input type="text" name="clg" id="clg">
+    </div>
+    <button onclick="addRow()">Add Row</button>
+    <table id="table" border>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>College</th>
+      </tr>
+    </table>
+  </div>
+
+  <script>
+      function addRow(){
+        let name = document.getElementById("name-1").value
+        let age = document.getElementById("age").value
+        let clg = document.getElementById("clg").value
+        let content = `<tr> <td>${name}</td> <td>${age}</td> <td>${clg}</td> </tr>`
+        document.getElementById("table").innerHTML += content
+      }
+  </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stock update</title>
+</head>
+<body mouseCoords(event)>
+  <div>
+    <h1>Stocks of This Company</h1>
+    <p id="stocks">8796</p>
+  </div>
+
+  <script>
+    function updatePrice(){
+    let price = Number(document.getElementById('stocks').textContent)
+    let newPrice = Math.random()*8000
+    document.getElementById("stocks").innerHTML = String(newPrice)
+    if(price > newPrice){
+      document.getElementById("stocks").style.color = 'green'
+    }else{
+      document.getElementById("stocks").style.color = 'red'
+    }}
+    setInterval(updatePrice,2000)
+
+    
+  </script>
+</body>
+</html>

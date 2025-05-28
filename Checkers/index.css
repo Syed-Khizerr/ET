@@ -1,0 +1,27 @@
+#container{
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto auto auto;
+  width: 640px;
+  height: 640px;
+  background-color: aqua;
+  border: 10px solid yellow;
+}
+
+.black{
+  width: 80px;
+  height: 80px;
+  background-color: black;
+}
+.black:hover{
+  background-color: aqua;
+}
+.white{
+  width: 80px;
+  height: 80px;
+  background-color: white;
+
+}
+.white:hover{
+  background-color: aqua;
+}
+
