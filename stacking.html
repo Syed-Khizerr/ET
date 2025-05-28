@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Z-Index Stacking</title>
+  <style>
+    .box {
+      width: 150px;
+      height: 150px;
+      position: absolute;
+      border: 2px solid #333;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    #box1 {
+      background-color: tomato;
+      top: 50px;
+      left: 50px;
+      z-index: 1;
+    }
+
+    #box2 {
+      background-color: cornflowerblue;
+      top: 100px;
+      left: 100px;
+      z-index: 2;
+    }
+
+    #box3 {
+      background-color: yellowgreen;
+      top: 150px;
+      left: 150px;
+      z-index: 3;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Click a Box to Bring it to Front</h2>
+
+<div id="box1" class="box"></div>
+<div id="box2" class="box"></div>
+<div id="box3" class="box"></div>
+
+<script>
+  const boxes = document.querySelectorAll('.box');
+
+  let topZIndex = 3; // Initial highest z-index
+
+  boxes.forEach(box => {
+    box.addEventListener('click', () => {
+      topZIndex++;
+      box.style.zIndex = topZIndex;
+    });
+  });
+</script>
+
+</body>
+</html>
