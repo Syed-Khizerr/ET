@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dynamic Table with Input</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+    }
+    form {
+      margin-bottom: 20px;
+    }
+    input, select {
+      padding: 8px;
+      margin: 5px;
+    }
+    table {
+      border-collapse: collapse;
+      width: 90%;
+      margin-top: 20px;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+    }
+    th {
+      background-color: #f3f3f3;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Student Admission Enquiry</h2>
+
+  <form id="studentForm">
+    <input type="number" id="id" placeholder="ID" required />
+    <input type="text" id="name" placeholder="Name" required />
+    <select id="course" required>
+      <option value="">Select Course</option>
+      <option value="B.E CSE">B.E CSE</option>
+      <option value="B.E ECE">B.E ECE</option>
+      <option value="B.E MECH">B.E MECH</option>
+      <option value="B.Sc Maths">B.Sc Maths</option>
+    </select>
+    <input type="email" id="email" placeholder="Email" required />
+    <button type="submit">Add Student</button>
+  </form>
+
+  <table id="studentTable">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Course</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Rows will be inserted here dynamically -->
+    </tbody>
+  </table>
+
+  <script>
+    const studentForm = document.getElementById('studentForm');
+    const studentTable = document.getElementById('studentTable').getElementsByTagName('tbody')[0];
+
+    studentForm.addEventListener('submit', function(e) {
+      e.preventDefault(); // Prevent form from submitting normally
+
+      // Get form values
+      const id = document.getElementById('id').value.trim();
+      const name = document.getElementById('name').value.trim();
+      const course = document.getElementById('course').value;
+      const email = document.getElementById('email').value.trim();
+
+      // Create new row and cells
+      const newRow = studentTable.insertRow();
+      newRow.insertCell(0).textContent = id;
+      newRow.insertCell(1).textContent = name;
+      newRow.insertCell(2).textContent = course;
+      newRow.insertCell(3).textContent = email;
+
+      // Optional: Reset form
+      studentForm.reset();
+    });
+  </script>
+
+</body>
+</html>
